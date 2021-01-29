@@ -1,3 +1,5 @@
+name: Start release
+
 on:
   workflow_dispatch:
 jobs:
