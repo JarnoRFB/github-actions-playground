@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch: {}
+jobs:
+  merge-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: everlytic/branch-merge@1.1.0
+        with:
+          github_token: ${{ github.token }}
+          source_ref: 'develop'
+          target_branch: 'staging'
+          commit_message_template: 'Automatically merged {source_ref} into target {target_branch}'
