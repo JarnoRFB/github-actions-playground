@@ -1,10 +1,11 @@
-name: Start release
+name: Start staging
 
 on:
   workflow_dispatch:
 jobs:
   merge-branch:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
     steps:
       - uses: actions/checkout@v2
       - uses: everlytic/branch-merge@1.1.0
