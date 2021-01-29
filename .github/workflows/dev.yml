@@ -1,7 +1,6 @@
 name: Start staging
 
-on:
-  workflow_dispatch:
+on: workflow_dispatch
 jobs:
   merge-branch:
     runs-on: ubuntu-latest
@@ -13,4 +12,4 @@ jobs:
           github_token: ${{ github.token }}
           source_ref: 'develop'
           target_branch: 'staging'
-          commit_message_template: 'Automatically merged {source_ref} into target {target_branch}'
+          commit_message_template: 'Merge {source_ref} into {target_branch}'
