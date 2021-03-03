@@ -3,7 +3,6 @@ name: Define Stage
 on:
   push:
     branches:
-      - "main"
       - "staging"
       - "develop"
 
