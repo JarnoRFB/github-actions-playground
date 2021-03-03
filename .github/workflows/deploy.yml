@@ -1,0 +1,29 @@
+name: Define Stage
+
+on:
+  push:
+    branches:
+      - "staging"
+      - "develop"
+
+jobs:
+  merge-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Define Stage
+        run: |
+          ref=${{ github.ref }}
+          if [ ${ref} == 'refs/heads/develop' ]
+          then
+            stage="int-dev"
+          elif [ ${ref} == 'refs/heads/staging' ]
+          then
+            stage="staging"
+          else
+            echo "Workflow not defined for branch ${ref}"
+            exit 1
+          fi
+
+          echo "STAGE=${stage}" >> $GITHUB_ENV
+      - name: Echo stage
+        run: echo "Deploying to ${STAGE}"
