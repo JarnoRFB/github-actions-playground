@@ -16,7 +16,7 @@ jobs:
         id: changelog
         uses: heinrichreimer/github-changelog-generator-action@v2.1.1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Release
         id: create_release
         uses: softprops/action-gh-release@v1
@@ -28,3 +28,10 @@ jobs:
           body: ${{ steps.changelog.outputs.changelog }}
           draft: false
           prerelease: false
+      - name: Merge back to develop
+        uses: everlytic/branch-merge@1.1.0
+        with:
+          github_token: ${{ github.token }}
+          source_ref: "main"
+          target_branch: "develop"
+          commit_message_template: "Merge {source_ref} into {target_branch}"
