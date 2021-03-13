@@ -1,10 +1,10 @@
-name: Label PRs
+name: Draft release
 on:
   pull_request:
     types: [opened]
 
 jobs:
-  pr-labeler:
+  draft-release:
     runs-on: ubuntu-latest
     steps:
       - uses: release-drafter/release-drafter@v5
