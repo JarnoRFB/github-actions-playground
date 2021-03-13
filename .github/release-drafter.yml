@@ -1,0 +1,36 @@
+name-template: "Release v$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
+categories:
+  - title: "🏞️ Features"
+    labels:
+      - "feature"
+  - title: "🐛 Bug Fixes"
+    labels:
+      - "bugfix"
+  - title: "🌵 Maintenance"
+    label: "chore"
+change-template: "- 🌱 $TITLE (#$NUMBER) @$AUTHOR"
+change-title-escapes: '\<*_&'
+exclude-labels:
+  - "skip-changelog"
+version-resolver:
+  major:
+    labels:
+      - "breaking"
+  minor:
+    labels:
+      - "feature"
+  patch:
+    labels:
+      - "bugfix"
+      - "chore"
+  default: patch
+template: |
+  ## Changes
+
+  $CHANGES
+autolabeler:
+  - label: "skip-changelog"
+    branch:
+      - "develop"
+      - "staging"
