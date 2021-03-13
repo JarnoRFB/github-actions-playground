@@ -24,4 +24,4 @@ jobs:
           github_token: ${{ github.token }}
           source_ref: "main"
           target_branch: "develop"
-          commit_message_template: "Merge {source_ref} into {target_branch} after release ${{ steps.outputs.create_release.tag_name }}"
+          commit_message_template: 'Merge {source_ref} into {target_branch} after release ${{ steps.outputs.create_release.tag_name }}'
