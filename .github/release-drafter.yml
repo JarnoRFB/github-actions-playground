@@ -34,6 +34,6 @@ autolabeler:
     branch:
       - "develop"
       - "staging"
-  - label: feature
+  - label: "feature"
     branch:
       - '/feature\/.+/'
