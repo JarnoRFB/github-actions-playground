@@ -36,4 +36,4 @@ autolabeler:
       - "staging"
   - label: "feature"
     branch:
-      - "feature/autolabel"
+      - '/feature\/.+/'
