@@ -13,6 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - uses: release-drafter/release-drafter@v5
+        id: create-release
         with:
           publish: true
         env:
@@ -23,4 +24,4 @@ jobs:
           github_token: ${{ github.token }}
           source_ref: "main"
           target_branch: "develop"
-          commit_message_template: "Merge {source_ref} into {target_branch}"
+          commit_message_template: "Merge {source_ref} into {target_branch} after release ${{ steps.create-release.outputs.tag_name }}"
